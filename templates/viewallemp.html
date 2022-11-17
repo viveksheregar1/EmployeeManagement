@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block data %}
+	
+	<div class="divider"></div>
+		<table style="margin-top: 10px; margin-left:auto;margin-right:auto;font-size: large;border: 1px solid black;" >
+			<tr style="border: 1px solid black;"  >
+				<th align = "center"style="width:100px;border: 1px solid black;font-size:large;">ID </th>
+				<th align = "center"style="width:100px;border: 1px solid black;font-size:large;">First Name </th>
+				<th align = "center"style="width:100px;border: 1px solid black;font-size:large;">Last Name</th>
+				<th align = "center"style="width:100px;border: 1px solid black;font-size:large;">Email</th>
+				<th align = "center"style="width:100px;border: 1px solid black;font-size:large;">Contact</th>
+				<th align = "center"style="width:100px;border: 1px solid black;font-size:large;">Address</th>
+				<th align = "center"style="width:100px;border: 1px solid black;font-size:large;">Department</th>				
+				<th align = "center"style="width:100px;border: 1px solid black;font-size:large;">Salary</th>
+				<th align = "center"style="width:100px;border: 1px solid black;font-size:large;">Picture</th>
+			</tr>
+			{% for record in records %}
+				<tr>
+					<td align = "center"style="width:100px;border: 1px solid black;">{{record.empid}}</td>
+					<td align = "center"style="width:100px;border: 1px solid black;">{{record.firstname}}</td>
+					<td align = "center"style="width:100px;border: 1px solid black;">{{record.lastname}}</td>
+					<td align = "center"style="width:100px;border: 1px solid black;">{{record.email}}</td>
+					<td align = "center"style="width:100px;border: 1px solid black;">{{record.contact}}</td>
+					<td align = "center"style="width:100px;border: 1px solid black;">{{record.address}}</td>
+					<td align = "center"style="width:100px;border: 1px solid black;">{{record.department}}</td>				
+					<td align = "center"style="width:100px;border: 1px solid black;">{{record.salary}}</td>
+					<td align = "center"style="width:100px;border: 1px solid black;">{{record.picture}}</td>
+				</tr>
+			{% endfor %}
+
+		</table>
+{% endblock %}  

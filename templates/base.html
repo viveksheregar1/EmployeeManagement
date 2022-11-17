@@ -1,0 +1,27 @@
+{% load static%}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Employee Management</title>
+	<!-- Icons font CSS-->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+	<header>
+		<nav>
+			<h1>Employee Management</h1>
+			<ul id="navli">
+				<li><a class="homeblack" href="/">HOME</a></li>
+                <li><a class="homeblack" href="addemp">Add Employee</a></li>
+                <li><a class="homeblack" href="searchemp">View Employee</a></li>
+				<li><a class="homeblack" href="employee">All Employee</a></li>
+			</ul>
+		</nav>
+	</header>
+    {% block data %}
+    {% endblock %}
+</body>
+</html>

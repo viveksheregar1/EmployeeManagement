@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block data %}
+{%for message in messages %}
+    {% if 'success' in message.tags %}
+    <script>alert("{{message}}");</script>
+    {% endif %}
+    {% endfor %}
+  <div class="divider"></div>
+  <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                  <h2 class="title">Employee Info</h2>
+                    <form method="POST" action="employee" >
+                    {% csrf_token %}
+                      <center>
+                        <img src="media/{{record.picture}}" height = 150px width = 150px>
+                      </center>
+                      <div class="input-group">
+                        <p>Employee ID</p>
+                        <input class="input--style-1" type="text"  name="empid"  value={{record.empid}} required readonly>
+                      </div>
+                      <div class="row row-space">
+                          <div class="col-2">
+                              <div class="input-group">
+                                <p>First Name</p>
+                                    <input class="input--style-1" type="text" name="firstname" id="firstname" value={{record.firstname}} required readonly="readonly" >
+                              </div>
+                          </div>
+                          <div class="col-2">
+                              <div class="input-group">
+                                <p>Last Name</p>
+                                  <input class="input--style-1" type="text" name="lastname" id="lastname" value={{record.lastname}} required readonly="readonly">
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="input-group">
+                        <p>Email</p>
+                          <input class="input--style-1" type="email"  name="email" id="email" value={{record.email}} required readonly="readonly">
+                      </div>
+                
+                      <div class="input-group">
+                        <p>Contact Number</p>
+                          <input class="input--style-1" type="number" name="contact" id="contact" value={{record.contact}} pattern="[0-9]{10}" required readonly="readonly">
+                      </div>
+                      
+                      <div class="input-group">
+                        <p>Address</p>
+                          <input class="input--style-1" type="text"  name="address" id="address" value={{record.address}} required readonly="readonly">
+                      </div>
+
+                      <div class="input-group">
+                        <p>Department</p>
+                          <input class="input--style-1" type="text" name="dept" id="dept" value={{record.department}} required readonly="readonly">
+                      </div>
+
+                      <div class="input-group">
+                        <p>Salary</p>
+                          <input class="input--style-1" type="number" name="salary" id="salary" value={{record.salary}} required readonly="readonly">
+                      </div>
+                      
+                        <input type="hidden" name="empid" value={{record.empid}}>
+                        <div class="p-t-20">
+                          <button class="btn btn--radius btn--green"  name="update" id="update" style="visibility:hidden;" >Update</button>&emsp;
+                        </div>
+                        <div class="p-t-20">
+                            <button class="btn btn--radius btn--green" id="delete" name="delete" >Delete Info</button>&emsp;
+                        </div>
+                    </form>
+                    <div class="p-t-20">
+                      <button class="btn btn--radius btn--green"  name="edit" id="edit" onclick="changereadonly()">Edit Info</button>&emsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

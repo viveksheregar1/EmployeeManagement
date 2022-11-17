@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block data %}
+
+    {%for message in messages %}
+        <script>alert("{{message}}");</script>
+    {% endfor %}
+
+    <div class="divider"></div>
+    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Add New Employee</h2>
+                    <form action="employee" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" placeholder="Employee ID" name="empid" required>
+                        </div>
+
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                     <input class="input--style-1" type="text" placeholder="First Name" name="firstname" required="required">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1" type="text" placeholder="Last Name" name="lastname" required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="email" placeholder="Email" name="email" required="required">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="tel" placeholder="Contact Number" name="contact" required="required" pattern="[0-9]{10}" >
+                        </div>
+
+                        
+                         <div class="input-group">
+                            <input class="input--style-1" type="text" placeholder="Address" name="address" required="required">
+                        </div>
+
+                        <div class="input-group">
+                            <input class="input--style-1" type="text" placeholder="Department" name="dept" required="required">
+                        </div>
+
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" placeholder="Salary" name="salary" required="required">
+                        </div>
+                        <p>Upload Image</p>
+                        <div class="input-group">
+                            <input class="input--style-1" type="file" placeholder="Image" name="picture" required>
+                        </div>
+
+                        <div class="p-t-20">
+                            <button class="btn btn--radius btn--green" name="save" >Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

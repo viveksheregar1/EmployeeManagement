@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block data %}
+
+    {%for message in messages %}
+    {% if 'success' in message.tags %}
+    <script>alert("{{message}}");</script>
+    {% endif %}
+    {% endfor %}
+  <div class="divider"></div>
+    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Find Employee</h2>
+                    <form method="POST" action="employee" >
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <p>Employee ID</p>
+                            <input class="input--style-1" type="number"  name="empid" required>
+                        </div>
+                        {%for message in messages %}
+                        {% if 'info' in message.tags %}
+                        <center><h3>{{message}}</h3></center>
+                        {% endif %}
+                        {% endfor %}
+                        <div class="p-t-20">
+                            <button class="btn btn--radius btn--green"  name="search" >Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}
